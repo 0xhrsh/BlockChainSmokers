@@ -5,13 +5,13 @@
       		<a class="navbar-brand" href="#">BlockChainSmokers</a>
       		</li>
       		<li class="nav-item active">
-        		<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        		<a class="nav-link" href="{% url 'profile' %}">Home <span class="sr-only">(current)</span></a>
       		</li>
       		<li class="nav-item">
-        		<a class="nav-link" href="#">Vote</a>
+        		<a class="nav-link" href="{% url 'vote' %}">Vote</a>
       		</li>
       		<li class="nav-item">
-        		<a class="nav-link" href="#">Know your Candidate</a>
+        		<a class="nav-link" href="{% url 'helper' %}">Know your Candidate</a>
       		</li>
         </ul>
         <span class="navbar-text">

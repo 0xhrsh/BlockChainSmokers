@@ -28,5 +28,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('profile/', views.TestPageView.as_view(template_name='profile.html'), name='profile'),
+    path('helper/', views.TestPageView.as_view(template_name='helper.html'), name='helper'),
+    path('vote/', views.TestPageView.as_view(template_name='vote.html'), name='vote'),
     path('thanks/', views.ThanksView.as_view(template_name='thanks.html'), name='thanks'),
 ]
