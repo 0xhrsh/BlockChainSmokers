@@ -131,3 +131,5 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = 'profile'
 LOGOUT_REDIRECT_URL = 'thanks'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")

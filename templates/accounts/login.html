@@ -31,7 +31,8 @@
                                         <h3 class="login-heading mb-4">Welcome back!</h3>
                                         <form>
                                             {{ form|crispy }}
-                                            <button type="submit">Login</button>
+                                            <p><a href="{% url 'password_reset' %}">Forgot Password?</a></p>
+                                            <button class="btn btn-primary" type="submit">Login</button>
                                         </form>
                                     </div>
                                 </div>
