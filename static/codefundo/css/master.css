@@ -100,6 +100,7 @@ section .section-title {
 }
 #footer {
     background: #007b5e !important;
+    margin-top: 120px
 }
 #footer h5{
   padding-left: 10px;
@@ -115,7 +116,7 @@ section .section-title {
     -webkit-text-decoration-skip: objects;
 }
 #footer ul.social li{
-  padding: 3px 0;
+  padding: 30px 10px;
 }
 #footer ul.social li a i {
     margin-right: 5px;
@@ -153,11 +154,11 @@ section .section-title {
     font-weight: 700;
 }
 
-@media (max-width:767px){
+@media (max-width:707px){
   #footer h5 {
     padding-left: 0;
     border-left: transparent;
     padding-bottom: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 }

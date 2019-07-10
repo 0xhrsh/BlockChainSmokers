@@ -59,7 +59,7 @@ body {
 }
 .footer-copyright {
   color: #666;
-  padding: 40px 0;
+  padding: 140px 100px;
 }
 @media (max-width: 575.98px) {
   .description {
