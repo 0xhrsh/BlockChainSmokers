@@ -18,7 +18,8 @@ from django.urls import path, include
 from accounts.views import LoginView
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth import views as auth_views
-from . import views
+from django.contrib.staticfiles.urls import static
+from . import views, settings
 
 urlpatterns = [
     path('', views.HomepageView.as_view(template_name='index.html'), name='home'),
@@ -34,4 +35,5 @@ urlpatterns = [
     path('vote/', views.TestPageView.as_view(template_name='vote.html'), name='vote'),
     path('thanks/', views.ThanksView.as_view(template_name='thanks.html'), name='thanks'),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 #urlpatterns += patterns('django.views.static',(r'^media/(?P<path>.*)','serve',{'document_root':codefundo.MEDIA_ROOT}), )
