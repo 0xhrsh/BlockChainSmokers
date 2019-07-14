@@ -25,6 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('login/', LoginView.as_view(template_name='accounts/login.html'), name='login'),
     # path('logout/', LogoutView.as_view(), name='logout'),
+    #(r'^static/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
+    #path('static/',),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('profile/', views.TestPageView.as_view(template_name='profile.html'), name='profile'),
@@ -32,3 +34,4 @@ urlpatterns = [
     path('vote/', views.TestPageView.as_view(template_name='vote.html'), name='vote'),
     path('thanks/', views.ThanksView.as_view(template_name='thanks.html'), name='thanks'),
 ]
+#urlpatterns += patterns('django.views.static',(r'^media/(?P<path>.*)','serve',{'document_root':codefundo.MEDIA_ROOT}), )
