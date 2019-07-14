@@ -29,6 +29,7 @@ wheels/
 migrations/
 staticfiles/
 ads/
+media/
 .idea/
 
 # PyInstaller

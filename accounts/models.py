@@ -9,6 +9,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     voter_id = models.CharField(max_length=20, blank=False)
     auth_id = models.CharField(max_length=20, blank=False)
+    voter_image = models.ImageField(upload_to='voters', default='image.jpg')
 
 
 @receiver(post_save, sender=User)
