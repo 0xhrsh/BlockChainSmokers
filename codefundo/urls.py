@@ -33,7 +33,7 @@ urlpatterns = [
     path('profile/', views.TestPageView.as_view(template_name='profile.html'), name='profile'),
     path('helper/', views.TestPageView.as_view(template_name='helper.html'), name='helper'),
     path('vote/', views.TestPageView.as_view(template_name='vote.html'), name='vote'),
-    path('vote/<int:candidate_id/>', views.detail, name="detail"),
+    path('helper/<int:candidate_id>/', views.detail, name="detail"),
     path('thanks/', views.ThanksView.as_view(template_name='thanks.html'), name='thanks'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
