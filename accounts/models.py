@@ -11,6 +11,8 @@ class Profile(models.Model):
     auth_id = models.CharField(max_length=20, blank=False)
     voter_image = models.ImageField(upload_to='voters', default='image.jpg')
 
+    def __str__(self):
+        return self.user.username
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
