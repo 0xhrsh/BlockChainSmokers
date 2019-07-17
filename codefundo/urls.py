@@ -35,6 +35,7 @@ urlpatterns = [
     path('vote/', views.TestPageView.as_view(template_name='vote.html'), name='vote'),
     path('helper/<int:candidate_id>/', views.detail, name="detail"),
     path('thanks/', views.ThanksView.as_view(template_name='thanks.html'), name='thanks'),
+    path('index/', views.ThanksView.as_view(template_name='index.html'), name='index'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 #urlpatterns += patterns('django.views.static',(r'^media/(?P<path>.*)','serve',{'document_root':codefundo.MEDIA_ROOT}), )
