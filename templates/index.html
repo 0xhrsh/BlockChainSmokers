@@ -23,13 +23,19 @@
         </nav>
     </header>
 
-    <div class="container">
-        <h2 class="display-4" >Welcome to Blockchain Smokers</h2>
-        <div class="button">
-            {#    <a href="accounts/login/">#}
-            {#        <button type="button" class="btn btn-primary">Login</button>#}
-            {#    </a>#}
-            <a href="{% url 'accounts:login' %}" class="btn btn-primary">Login</a>
-        </div>
+    <!-- Jumbotron -->
+<div class="card card-image" style="background-image: url(https://img.huffingtonpost.com/asset/5c3c66322500008e007daf57.jpeg?cache=6KYlY0Aai1&ops=crop_0_256_4075_2527,scalefit_630_noupscale);">
+  <div class="text-black text-center rgba-stylish-strong py-5 px-4">
+    <div class="py-5">
+
+      <!-- Content -->
+      <h5 class="h5 orange-text"><i class="fas fa-flag"></i> Voting is our right !</h5>
+      <h2 class="card-title h2 my-4 py-2">Welcome to Blockchain Smokers !</h2>
+      <p class="mb-4 pb-2 px-md-5 mx-md-5">An intuitive way of voting. Vote from anywhere and anytime !</p>
+      <a class="btn peach-gradient" href="{% url 'helper' %}"><i class="fas fa-flag left"></i> Vote now !</a>
+
     </div>
+  </div>
+</div>
+<!-- Jumbotron -->
 {% endblock %}
