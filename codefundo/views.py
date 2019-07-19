@@ -4,12 +4,8 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 
-class HomepageView(TemplateView):
-    template_name = 'index.html'
-
-
 class TestPageView(TemplateView):
-    template_name = 'profile.html'
+    template_name = 'codefundo/profile.html'
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -17,7 +13,7 @@ class TestPageView(TemplateView):
 
 
 class ThanksView(TemplateView):
-    template_name = 'thanks.html'
+    template_name = 'codefundo/thanks.html'
 
 
 def detail(request, candidate_id):

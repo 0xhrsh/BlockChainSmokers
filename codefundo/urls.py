@@ -22,7 +22,8 @@ from django.contrib.staticfiles.urls import static
 from . import views, settings
 
 urlpatterns = [
-    path('', views.HomepageView.as_view(template_name='index.html'), name='home'),
+    path('', include('main.urls')),
+    # path('', views.HomepageView.as_view(template_name='index.html'), name='home'),
     path('admin/', admin.site.urls),
     # path('login/', LoginView.as_view(template_name='accounts/login.html'), name='login'),
     # path('logout/', LogoutView.as_view(), name='logout'),
@@ -30,12 +31,12 @@ urlpatterns = [
     #path('static/',),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('profile/', views.TestPageView.as_view(template_name='profile.html'), name='profile'),
-    path('helper/', views.TestPageView.as_view(template_name='helper.html'), name='helper'),
+    path('profile/', views.TestPageView.as_view(template_name='codefundo/profile.html'), name='profile'),
+    path('helper/', views.TestPageView.as_view(template_name='codefundo/helper.html'), name='helper'),
     path('vote/', views.TestPageView.as_view(template_name='vote.html'), name='vote'),
     path('helper/<int:candidate_id>/', views.detail, name="detail"),
-    path('thanks/', views.ThanksView.as_view(template_name='thanks.html'), name='thanks'),
-    path('index/', views.ThanksView.as_view(template_name='index.html'), name='index'),
+    path('thanks/', views.ThanksView.as_view(template_name='codefundo/thanks.html'), name='thanks'),
+    path('index/', views.ThanksView.as_view(template_name='main/index.html'), name='index'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 #urlpatterns += patterns('django.views.static',(r'^media/(?P<path>.*)','serve',{'document_root':codefundo.MEDIA_ROOT}), )

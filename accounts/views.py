@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LoginView as DefaultLoginView
-from codefundo.views import HomepageView
+from main.views import HomepageView
 from .models import Profile, User
 
 
