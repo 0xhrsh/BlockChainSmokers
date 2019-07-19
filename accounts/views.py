@@ -8,6 +8,7 @@ class LoginView(DefaultLoginView, HomepageView):
     template_name = 'accounts/login.html'
     redirect_authenticated_user = True
 
+
 def update_profile(request, user_id):
     user = User.objects.get(pk=user_id)
     user.save()

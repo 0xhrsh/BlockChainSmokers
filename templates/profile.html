@@ -4,18 +4,24 @@
 {% include 'header.html' %}
 {% block content %}
     {% include 'header.html' %}
-    <hr class="featurette-divider">
+    {% if user.is_authenticated %}
+        <hr class="featurette-divider">
 
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">Hello Voter! <span class="text-muted">Did you cast your vote yet?</span></h2>
-            <p class="lead">Click <a href="{% url 'helper' %}">here</a> to vote. Remember to vote carefully, every vote
-                is important.</p>
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Hello Voter! <span class="text-muted">Did you cast your vote yet?</span>
+                </h2>
+                <p class="lead">Click <a href="{% url 'helper' %}">here</a> to vote. Remember to vote carefully, every
+                    vote
+                    is important.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{% static 'holder.jpg' %}" class="featurette-image img-fluid mx-auto"
+                     alt="Generic placeholder image">
+            </div>
         </div>
-        <div class="col-md-5">
-            <img src="{% static 'holder.jpg' %}" class="featurette-image img-fluid mx-auto"
-                 alt="Generic placeholder image">
-        </div>
-    </div>
+    {% else %}
+        <p>Please <a href="{% url 'accounts:login' %}">login</a> to see this page.</p>
+    {% endif %}
 
 {% endblock %}
