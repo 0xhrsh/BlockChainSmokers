@@ -12,3 +12,5 @@ class LoginView(DefaultLoginView, HomepageView):
 def update_profile(request, user_id):
     user = User.objects.get(pk=user_id)
     user.save()
+
+

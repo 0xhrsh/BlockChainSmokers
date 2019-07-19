@@ -7,6 +7,7 @@ class HomepageView(TemplateView):
 class TestPageView(TemplateView):
     template_name = 'profile.html'
 
+
 class ThanksView(TemplateView):
     template_name = 'thanks.html'
 
