@@ -33,9 +33,15 @@
 
     {% if user.is_authenticated %}
         <br><br>
-        {% for candidate in  candidates %}
-        {% include 'main/mixins/candidate_card_mixin.html' %}
-        {% endfor %}
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                {% for candidate in  candidates %}
+                    {% include 'main/mixins/candidate_card_mixin.html' %}
+                {% endfor %}
+            </div><!-- /.row -->
+        </div>
     {% else %}
         <p>Please <a href="{% url 'accounts:login' %}">login</a> to see this page.</p>
     {% endif %}
