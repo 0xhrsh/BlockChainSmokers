@@ -35,7 +35,7 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Hello Voter! <span class="text-muted">Did you cast your vote yet?</span>
+                <h2 class="featurette-heading">Hello {{ user.username }}! <span class="text-muted">Did you cast your vote yet?</span>
                 </h2>
                 <p class="lead">Click <a href="{% url 'helper' %}">here</a> to vote. Remember to vote carefully, every
                     vote
