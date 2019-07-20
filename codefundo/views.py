@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from accounts.models import Candidate
+from django.views import generic
 
 
 class ProfilePageView(TemplateView):
@@ -25,5 +26,13 @@ class ThanksView(TemplateView):
     template_name = 'codefundo/thanks.html'
 
 
-def detail(request, candidate_id):
-    return HttpResponse("You're looking at candidate %s." % candidate_id)
+class DetailView(generic.DetailView):
+    model = Candidate
+    template_name = 'codefundo/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data()
+        context['candidates'] = Candidate.objects.all()
+        return context
+
+

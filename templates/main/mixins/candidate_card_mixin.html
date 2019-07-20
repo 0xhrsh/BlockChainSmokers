@@ -3,6 +3,6 @@
                  src="{{ candidate.image }}"
                  alt="Generic placeholder image" width="120" height="120">
             <h2>{{ candidate.name }}</h2>
-            <p>This Candidate comes from {{ candidate.party }} party here is his<a href=""> portfolio </a>.</p>
+            <p>This Candidate comes from {{ candidate.party }} party here is his<a href="{% url 'detail' candidate.id %}"> portfolio </a>.</p>
             <p><a class="btn btn-secondary" href="#" role="button">Vote &raquo;</a></p>
         </div><!-- /.col-lg-4 -->

@@ -33,7 +33,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('profile/', views.ProfilePageView.as_view(template_name='codefundo/profile.html'), name='profile'),
     path('helper/', views.VoteHelperPageView.as_view(template_name='codefundo/helper.html'), name='helper'),
-    path('helper/<int:candidate_id>/', views.detail, name="detail"),
+    path('helper/<int:pk>/', views.DetailView.as_view(template_name='codefundo/detail.html'), name="detail"),
     path('thanks/', views.ThanksView.as_view(template_name='codefundo/thanks.html'), name='thanks'),
     path('index/', views.ThanksView.as_view(template_name='main/index.html'), name='index'),
 ]
