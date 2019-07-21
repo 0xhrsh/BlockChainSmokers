@@ -1,8 +1,10 @@
 from django.views.generic import TemplateView
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 from django.utils.decorators import method_decorator
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from accounts.models import Candidate
+from accounts.models import Candidate, Constituency
 from django.views import generic
 
 
@@ -34,5 +36,23 @@ class DetailView(generic.DetailView):
         context = super(DetailView, self).get_context_data()
         context['candidates'] = Candidate.objects.all()
         return context
+
+# def vote(request, constituency_id):
+#     constituency = get_object_or_404(Constituency, pk=constituency_id)
+#     try:
+#         selected_choice = constituency.candidate_set.get(pk=request.POST['candidate'])
+#     except (KeyError, Candidate.DoesNotExist):
+#         # Redisplay the question voting form.
+#         return render(request, 'codefundo/helper.html', {
+#             'constituency': constituency,
+#             'error_message': "You didn't select a candidate.",
+#         })
+#     else:
+#         selected_choice.votes += 1
+#         selected_choice.save()
+#         # Always return an HttpResponseRedirect after successfully dealing
+#         # with POST data. This prevents data from being posted twice if a
+#         # user hits the Back button.
+#         return HttpResponseRedirect(reverse('helper', args=(constituency.id,)))
 
 

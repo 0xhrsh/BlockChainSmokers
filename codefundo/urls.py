@@ -27,8 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('login/', LoginView.as_view(template_name='accounts/login.html'), name='login'),
     # path('logout/', LogoutView.as_view(), name='logout'),
-    #(r'^static/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
-    #path('static/',),
+    # (r'^static/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
+    # path('static/',),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('profile/', views.ProfilePageView.as_view(template_name='codefundo/profile.html'), name='profile'),
@@ -36,6 +36,7 @@ urlpatterns = [
     path('helper/<int:pk>/', views.DetailView.as_view(template_name='codefundo/detail.html'), name="detail"),
     path('thanks/', views.ThanksView.as_view(template_name='codefundo/thanks.html'), name='thanks'),
     path('index/', views.ThanksView.as_view(template_name='main/index.html'), name='index'),
+    # path('helper/<int:candidate_id>/vote/', views.vote, name="vote"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-#urlpatterns += patterns('django.views.static',(r'^media/(?P<path>.*)','serve',{'document_root':codefundo.MEDIA_ROOT}), )
+# urlpatterns += patterns('django.views.static',(r'^media/(?P<path>.*)','serve',{'document_root':codefundo.MEDIA_ROOT}), )

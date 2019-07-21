@@ -5,11 +5,21 @@ from django.dispatch import receiver
 
 
 # Create your models here.
+class Constituency(models.Model):
+    name = models.CharField(max_length=32, blank=False)
+    eligible_voters = models.IntegerField(default=0)
+    area = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     voter_id = models.CharField(max_length=20, blank=False)
     auth_id = models.CharField(max_length=20, blank=False)
     voter_image = models.ImageField(upload_to='voters', default='image.jpg')
+    constituency = models.ForeignKey(Constituency, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.user.username
@@ -24,15 +34,6 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
-
-
-class Constituency(models.Model):
-    name = models.CharField(max_length=32, blank=False)
-    eligible_voters = models.IntegerField(default=0)
-    area = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.name
 
 
 class Party(models.Model):

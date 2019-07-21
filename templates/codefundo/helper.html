@@ -33,15 +33,18 @@
 
     {% if user.is_authenticated %}
         <br><br>
-        <div class="container marketing">
+{#        <form action="{% url 'vote' constituency_id %}" method="post">#}
+            {% csrf_token %}
+            <div class="container marketing">
 
-            <!-- Three columns of text below the carousel -->
-            <div class="row">
-                {% for candidate in  candidates %}
-                    {% include 'main/mixins/candidate_card_mixin.html' %}
-                {% endfor %}
-            </div><!-- /.row -->
-        </div>
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+                    {% for candidate in  candidates %}
+                        {% include 'main/mixins/candidate_card_mixin.html' %}
+                    {% endfor %}
+                </div><!-- /.row -->
+            </div>
+{#        </form>#}
     {% else %}
         <p>Please <a href="{% url 'accounts:login' %}">login</a> to see this page.</p>
     {% endif %}
