@@ -32,19 +32,23 @@
     </header>
 
     {% if user.is_authenticated %}
-        <br><br>
-{#        <form action="{% url 'vote' constituency_id %}" method="post">#}
-            {% csrf_token %}
-            <div class="container marketing">
 
-                <!-- Three columns of text below the carousel -->
-                <div class="row">
+        <br><br>
+        {#        <form action="{% url 'vote' constituency_id %}" method="post">#}
+        {% csrf_token %}
+        <div class="container marketing">
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                {% for userad in users %}
                     {% for candidate in  candidates %}
-                        {% include 'main/mixins/candidate_card_mixin.html' %}
+                        {% if candidate.constituency.name == userad.profile.constituency.name %}
+                            {% include 'main/mixins/candidate_card_mixin.html' %}
+                        {% endif %}
                     {% endfor %}
-                </div><!-- /.row -->
-            </div>
-{#        </form>#}
+                {% endfor %}
+            </div><!-- /.row -->
+        </div>
+        {#        </form>#}
     {% else %}
         <p>Please <a href="{% url 'accounts:login' %}">login</a> to see this page.</p>
     {% endif %}

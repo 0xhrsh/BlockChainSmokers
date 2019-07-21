@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.utils.decorators import method_decorator
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from accounts.models import Candidate, Constituency
+from accounts.models import Candidate, Constituency, Profile, User
 from django.views import generic
 
 
@@ -15,12 +15,17 @@ class ProfilePageView(TemplateView):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
-class VoteHelperPageView(TemplateView):
+
+class VoteHelperPageView(generic.TemplateView):
     template_name = 'codefundo/helper.html'
 
     def get_context_data(self, **kwargs):
         context = super(VoteHelperPageView, self).get_context_data()
         context['candidates'] = Candidate.objects.all()
+        context['constituency'] = Constituency.objects.all()
+        context['profiles'] = Profile.objects.all()
+        context['users'] = User.objects.all()
+
         return context
 
 
@@ -54,5 +59,3 @@ class DetailView(generic.DetailView):
 #         # with POST data. This prevents data from being posted twice if a
 #         # user hits the Back button.
 #         return HttpResponseRedirect(reverse('helper', args=(constituency.id,)))
-
-
