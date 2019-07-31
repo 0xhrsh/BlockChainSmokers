@@ -32,20 +32,38 @@
     </header>
     {% if user.is_authenticated %}
         <hr class="featurette-divider">
-
+<div class="container-fluid">
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Hello {{ user.username }}! <span class="text-muted">Did you cast your vote yet?</span>
+                <h2 class="featurette-heading">  Hello {{ user.username }}! <span class="text-muted">Did you cast your vote yet?</span>
                 </h2>
-                <p class="lead">Click <a href="{% url 'helper' %}">here</a> to vote. Remember to vote carefully, every
+                <p class="lead">  Click <a href="{% url 'helper' %}">here</a> to vote. Remember to vote carefully, every
                     vote
                     is important.</p>
-            </div>
+            
+            <div class="card" style="300px">
+    <div class="card-header"><h3>{{user.username}}</h3></div>
+    <div class="card-body">
+        <ul>
+            <li><h5>Voter Id:</h5></li>
+            <li><h5>Authentication ID:***</h5></li>
+            <li><h5>Mobile No.:</h5></li>
+            <li><h5>Constituency:</h5></li>
+        </ul>
+    </div> 
+
+</div>
+  </div>
             <div class="col-md-5">
-                <img src="{% static 'images/holder.jpg' %}" class="featurette-image img-fluid mx-auto"
-                     alt="Generic placeholder image">
-            </div>
+              <div class="card" style="width:350px">
+            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThl1l6k9_DFkYcmARNDmGh9ICzFWxoUtBR_bbXyfsKWbgWYq7gtg" alt="Card image">
+           
         </div>
+            </div>
+        
+        </div>
+        
+</div>
     {% else %}
         <p>Please <a href="{% url 'accounts:login' %}">login</a> to see this page.</p>
     {% endif %}
