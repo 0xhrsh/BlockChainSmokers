@@ -1,5 +1,5 @@
 {% extends "codefundo/base.html" %}
-{% load crispy_forms_tags %}
+{#{% load crispy_forms_tags %}#}
 
 {% block content %}
     <div class="container">
@@ -30,7 +30,7 @@
                                     <div class="col-md-9 col-lg-8 mx-auto">
                                         <h3 class="login-heading mb-4">Welcome back!</h3>
                                         <form>
-                                            {{ form|crispy }}
+                                            {{ form }}
                                             <p><a href="{% url 'password_reset' %}">Forgot Password?</a></p>
                                             <button class="btn btn-primary" type="submit">Login</button>
                                         </form>
