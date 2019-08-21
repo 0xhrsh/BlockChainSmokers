@@ -15,6 +15,11 @@ class ProfilePageView(TemplateView):
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
+    def get_context_data(self, **kwargs):
+        context = super(ProfilePageView, self).get_context_data()
+        context['profiles'] = Profile.objects.all()
+        context['users'] = User.objects.all()
+
 
 class VoteHelperPageView(generic.TemplateView):
     template_name = 'codefundo/helper.html'
