@@ -10,10 +10,17 @@ Any Voter can vote from anywhere in the nation from an ATM
 The voters without any computer device or internet can vote on ATM-Like EVM set up by the ECI, The voting process will be similar to banking on an ATM, where the voter will insert his/her voting card and can click on the desired candidate after signing in.
 # Use
 Run the commands
+
 run python manage.py runserver
+
 then go to 127.0.0.1:8000/admin to create superusers and list of parties from a constituency and the respective political leaders.
+
 python manage.py makemigrations accounts
+
 python manage.py migrate accounts
+
 python manage.py makemigrations
+
 python manage.py migrate
+
 python manage.py runserver
